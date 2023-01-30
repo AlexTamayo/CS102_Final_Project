@@ -51,11 +51,18 @@ my_games_list.append(NintendoSwitchGame("Xenoblade Chronicles 3", [[2022, 7, 29]
 # my_games_list.append(NintendoSwitchGame("", [[, , ]], [""], [""], [""]))
 # my_games_list.append(NintendoSwitchGame("", [[, , ]], [""], [""], [""]))
 
+def list_maker():
+    categories = []
+    for game in my_games_list:
+        for category in game.type_of_game():
+            categories.append(category.title())
+    return sorted(set(categories))
 
 
 if __name__ == "__main__":
-    counter = 0
-    for i in my_games_list:
-        print(i.type_of_game())
-        counter += 1
+    pass
+    # counter = 0
+    # for i in my_games_list:
+    #     print(i.type_of_game())
+    #     counter += 1
     # print(counter)
