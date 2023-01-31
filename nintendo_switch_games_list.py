@@ -27,7 +27,7 @@ my_games_list.append(NintendoSwitchGame("Mario Kart 8 Deluxe", [[2017, 4, 28]], 
 my_games_list.append(NintendoSwitchGame("Mario Strikers: Battle League", [[2022, 6, 10]], ["Nintendo"], ["Next Level Games"], ["Sports"], ["Split Screen", "Online"]))
 my_games_list.append(NintendoSwitchGame("Metroid Dread", [[2021, 10, 8]], ["Nintendo"], ["MercurySteam", "Nintendo EPD"], ["Action-adventure", "Metroidvania"]))
 my_games_list.append(NintendoSwitchGame("Nintendo Labo - Toy-Con 04: VR Kit", [[2019, 4, 12]], ["Nintendo"], ["Nintendo EPD"], ["Construction"]))
-my_games_list.append(NintendoSwitchGame("Nintendo Switch Sports", [[2022, 4, 29]], ["Nintendo"], ["Sports"], ["Split Screen", "Online"]))
+my_games_list.append(NintendoSwitchGame("Nintendo Switch Sports", [[2022, 4, 29]], ["Nintendo"], ["Nintendo EPD"], ["Sports"], ["Split Screen", "Online"]))
 my_games_list.append(NintendoSwitchGame("Ori Collector's Edition: Ori the Collection", [[2021, 10, 21]], ["Xbox Game Studios"], ["Moon Studios"], ["Platform-adventure", "Metroidvania"]))
 my_games_list.append(NintendoSwitchGame("Pikmin 3", [[2020, 10, 30]], ["Nintendo"], ["Nintendo EAD", "Eighting"], ["Real-time strategy", "puzzle"], ["Split Screen", "Co-Op"]))
 my_games_list.append(NintendoSwitchGame("Pokémon: Let's Go, Pikachu!", [[2018, 11, 16]], ["Nintendo", "The Pokémon Company"], ["Game Freak"], ["Role-playing"], ["Co-Op"]))
@@ -51,18 +51,46 @@ my_games_list.append(NintendoSwitchGame("Xenoblade Chronicles 3", [[2022, 7, 29]
 # my_games_list.append(NintendoSwitchGame("", [[, , ]], [""], [""], [""]))
 # my_games_list.append(NintendoSwitchGame("", [[, , ]], [""], [""], [""]))
 
+
+# list_maker() returns 3 lists. 1 with all game categories based on the catogories on the games added.
+# A second list with only the single player categories/genres.
+# And a third list with the type of multiplayer modes.
 def list_maker():
     categories = []
+    single_player = []
+    multi_player = []
     for game in my_games_list:
-        for category in game.type_of_game():
+        for category in game.type_of_game()[0]:
             categories.append(category.title())
-    return sorted(set(categories))
-
+        for category in game.type_of_game()[1]:
+            single_player.append(category.title())
+        for category in game.type_of_game()[2]:
+            multi_player.append(category.title())
+    categories = sorted(set(categories))
+    single_player = sorted(set(single_player))
+    multi_player = sorted(set(multi_player))
+    return categories, single_player, multi_player
 
 if __name__ == "__main__":
-    pass
     # counter = 0
     # for i in my_games_list:
     #     print(i.type_of_game())
     #     counter += 1
     # print(counter)
+
+    # print(list_maker()[1])
+
+    for game in my_games_list:
+        print(game)
+        print(game.NA_release_date())
+        print("\n")
+
+    # for game in my_games_list:
+    #     print(game)
+    #     print(game.single_player_and_cat)
+    #     print("\n")
+    #     if game.is_multi_player():
+    #         print(game)
+    #         print(game.multiplayer_type)
+    #         print("\n")
+    pass

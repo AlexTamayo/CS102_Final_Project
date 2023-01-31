@@ -8,9 +8,6 @@ https://patorjk.com/software/taag/#p=display&f=Graffiti&t=Type%20Something%20
 '''
 TO DO
 
--. Look into changing the the type formatting to something that gives me the Single Player and Genre separately
-from the multiplayer stuff. So it will basically show up as two list. One of genres and another of the multiplayer options.
-I could do this either in the class or in the list maker.
 
 -. First make the list of game types when the user inputs 1. Make it so that it shows in a neatly organised grid.
 
@@ -27,7 +24,7 @@ I could do this either in the class or in the list maker.
 -. 
 '''
 
-from helpers import terminal_center_print, center_string, square_frame
+from helpers import terminal_center_print, center_string, square_frame, words_grid
 from ANSI import ANSI
 from NintendoSwithGame import NintendoSwitchGame
 from nintendo_switch_games_list import my_games_list, list_maker
@@ -50,11 +47,38 @@ intro_text = '''
 
 print("\n\n\n\n")
 
-terminal_center_print(square_frame(intro_text, 65, 0, "||", "="))
+print(ANSI.BOLD)
+print(ANSI.RED)
 
+terminal_center_print(square_frame(intro_text, 65, 0, ("||"), ("=")))
+
+print(ANSI.END)
+
+print(ANSI.BOLD)
 terminal_center_print("This is Alex's games chooser.")
+
+print("\n")
 
 # a = input("Type a game category and I'll tell you which games are available in Alex's library of that type. You could also enter the number \"1\" to see all available types.\n\n:")
 
 # for i in list_maker():
 #     print(i)
+
+print("\n")
+
+# terminal_center_print(list_maker()[1])
+
+# print(list_maker()[1])
+# print(square_frame(words_grid(list_maker()[1], 3, True, 2), 80, 1, "||", "="))
+
+
+
+terminal_center_print("[Genres]")
+terminal_center_print(square_frame(words_grid(list_maker()[1], 2, True, 4), 55, 0, "||", "="))
+
+print("\n")
+
+terminal_center_print("[Multiplayer Modes]")
+terminal_center_print(square_frame(words_grid(list_maker()[2], 2, True, 2), 35, 0, "||", "="))
+
+print(ANSI.END)

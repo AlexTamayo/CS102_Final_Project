@@ -26,28 +26,25 @@ class NintendoSwitchGame:
     def is_single_player(self):
         return bool(self.single_player_and_cat)
 
-    def single_p_print(self):
-        if self.is_single_player():
-            return "Single Player"
-
     def is_multi_player(self):
         return bool(self.multiplayer_type)
 
-    def multi_p_print(self):
-        if self.is_multi_player():
-            return "Multiplayer"
-
     def type_of_game(self):
+        #3 lists are declared. One for all the categories, another for single player/genres and last one for type of multiplayer game/mode.
         categories_list = []
+        categories_singleP = []
+        categories_multiP = []
         if self.is_single_player():
-            categories_list.append(self.single_p_print())
+            categories_list.append("Single Player")
             for each in self.single_player_and_cat:
                 categories_list.append(each)
+                categories_singleP.append(each)
         if self.is_multi_player():
-            categories_list.append(self.multi_p_print())
+            categories_list.append("Multiplayer")
             for each in self.multiplayer_type:
                 categories_list.append(each)
-        return categories_list
+                categories_multiP.append(each)
+        return categories_list, categories_singleP, categories_multiP
 
 
 
