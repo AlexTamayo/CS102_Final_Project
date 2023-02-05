@@ -14,7 +14,7 @@ my_games_list = []
 my_games_list.append(NintendoSwitchGame("ARMS", [[2017, 6, 16]], ["Nintendo"], ["Nintendo EPD"], ["Fighting", "Sports"], ["Split Screen", "Online"]))
 my_games_list.append(NintendoSwitchGame("Astral Chain", [[2019, 8, 30]], ["Nintendo"], ["PlatinumGames"], ["Action-adventure", "Hack and Slash"], ["Co-Op"]))
 my_games_list.append(NintendoSwitchGame("Daemon X Machina", [[2019, 9, 13]], ["Nintendo"], ["Marvelous First Studio"], ["Action", "Third-person shooter"], ["PvP", "Online"]))
-my_games_list.append(NintendoSwitchGame("Fire Emblem: Three Houses", [[2019, 7, 29]],"Nintendo", ["Intelligent Systems"], ["Tactical role-playing"]))
+my_games_list.append(NintendoSwitchGame("Fire Emblem: Three Houses", [[2019, 7, 29]],["Nintendo"], ["Intelligent Systems"], ["Tactical role-playing"]))
 my_games_list.append(NintendoSwitchGame("Fire Emblem Warriors: Three Hopes", [[2022, 6, 24]], ["Nintendo"], ["Omega Force"], ["Hack and Slash", "Action role-playing", "Real-time tactics"], ["Split Screen", "Co-Op"]))
 my_games_list.append(NintendoSwitchGame("Hyrule Warriors: Age of Calamity", [[2020, 11, 20]], ["Nintendo"], ["Omega Force"], ["Hack and Slash", "Action role-playing"], ["Split Screen", "Co-Op"]))
 my_games_list.append(NintendoSwitchGame("Kirby and the Forgotten Land", [[2022, 3, 25]], ["Nintendo"], ["HAL Laboratory"], ["Platform"], ["Co-Op"]))
@@ -29,7 +29,7 @@ my_games_list.append(NintendoSwitchGame("Metroid Dread", [[2021, 10, 8]], ["Nint
 my_games_list.append(NintendoSwitchGame("Nintendo Labo - Toy-Con 04: VR Kit", [[2019, 4, 12]], ["Nintendo"], ["Nintendo EPD"], ["Construction"]))
 my_games_list.append(NintendoSwitchGame("Nintendo Switch Sports", [[2022, 4, 29]], ["Nintendo"], ["Nintendo EPD"], ["Sports"], ["Split Screen", "Online"]))
 my_games_list.append(NintendoSwitchGame("Ori Collector's Edition: Ori the Collection", [[2021, 10, 21]], ["Xbox Game Studios"], ["Moon Studios"], ["Platform-adventure", "Metroidvania"]))
-my_games_list.append(NintendoSwitchGame("Pikmin 3", [[2020, 10, 30]], ["Nintendo"], ["Nintendo EAD", "Eighting"], ["Real-time strategy", "puzzle"], ["Split Screen", "Co-Op"]))
+my_games_list.append(NintendoSwitchGame("Pikmin 3", [[2020, 10, 30]], ["Nintendo"], ["Nintendo EAD", "Eighting"], ["Real-time strategy", "Puzzle"], ["Split Screen", "Co-Op"]))
 my_games_list.append(NintendoSwitchGame("Pokémon: Let's Go, Pikachu!", [[2018, 11, 16]], ["Nintendo", "The Pokémon Company"], ["Game Freak"], ["Role-playing"], ["Co-Op"]))
 my_games_list.append(NintendoSwitchGame("Pokémon Sword", [[2019, 11, 15]], ["Nintendo", "The Pokémon Company"], ["Game Freak"], ["Role-playing"], ["Online"]))
 my_games_list.append(NintendoSwitchGame("Pokémon Legends: Arceus", [[2022, 1, 28]], ["Nintendo", "The Pokémon Company"], ["Game Freak"], ["Action role-playing"]))
@@ -52,10 +52,12 @@ my_games_list.append(NintendoSwitchGame("Xenoblade Chronicles 3", [[2022, 7, 29]
 # my_games_list.append(NintendoSwitchGame("", [[, , ]], [""], [""], [""]))
 
 
-# list_maker() returns 3 lists. 1 with all game categories based on the catogories on the games added.
-# A second list with only the single player categories/genres.
-# And a third list with the type of multiplayer modes.
 def list_maker():
+    """
+    # list_maker() returns 3 lists. 1 with all game categories based on the catogories on the games added.
+    # A second list with only the single player categories/genres.
+    # And a third list with the type of multiplayer modes.
+    """
     categories = []
     single_player = []
     multi_player = []
@@ -80,10 +82,10 @@ if __name__ == "__main__":
 
     # print(list_maker()[1])
 
-    for game in my_games_list:
-        print(game)
-        print(game.NA_release_date())
-        print("\n")
+    # for game in my_games_list:
+    #     print(game)
+    #     print(game.NA_release_date())
+    #     print("\n")
 
     # for game in my_games_list:
     #     print(game)
@@ -93,4 +95,8 @@ if __name__ == "__main__":
     #         print(game)
     #         print(game.multiplayer_type)
     #         print("\n")
+
+    for i in range(len(my_games_list)):
+        print(str(i)+" "+ my_games_list[i].name)
+
     pass

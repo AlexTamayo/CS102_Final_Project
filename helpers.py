@@ -15,8 +15,6 @@ def terminal_center_print(text):
     for line in lines:
         print(line.center(column_width))
 
-
-
 def center_string(string, length, fill_char):
     """
     Centers a string within a given length, using a specified fill character.
@@ -49,9 +47,7 @@ def square_frame(text, width, vertical_empty_lines = 0, vertical_line = "||", ho
     # Return the final text
     return final_text
 
-
-
-def words_grid(words, columns, equal_spacing=False, width=0):
+def words_grid(words, columns, equal_spacing=False, width=0, alignment = "^"):
     '''
     This function takes in four parameters:
     words - a list of words to be printed in a grid format
@@ -67,7 +63,7 @@ def words_grid(words, columns, equal_spacing=False, width=0):
     rt_decotator = ""
     if equal_spacing:
         max_word_len = max(len(word) for word in words)
-        format_str = "{:^" + str(max_word_len + width) + "}"
+        format_str = "{:"+alignment+str(max_word_len + width) + "}"
         words = [format_str.format(lt_decotator+word+rt_decotator) for word in words]
     # Calculate the total width of the grid (the total length of all words in a single row)    
     total_width = (max_word_len + width) * columns
@@ -86,7 +82,8 @@ def words_grid(words, columns, equal_spacing=False, width=0):
             space_length = total_width // len(row)
             # Center each word in the row using the calculated space length
             for word in row:
-                row_str += "{:^{}}".format(word, space_length)
+                row_str += "{:{}{}}".format(word, alignment, space_length)
+                # row_str += "{:"+alignment+word ^{}}".format(word, space_length)
             break
         # Add the words in the current row to the final grid string
         row_str += "".join(row)
@@ -97,8 +94,21 @@ def words_grid(words, columns, equal_spacing=False, width=0):
 
 
 
+def add_to_string(elements, separator):
+    # This function takes in two arguments: 
+    #   elements: a list of elements that need to be joined 
+    #   separator: the separator string used to join the elements
+
+    # The join() method is called on the separator string, 
+    # which is used to join all elements in the "elements" list. 
+    # The result of the join() method is returned from the function.
+    return separator.join(elements)
+
+
+
+
 if __name__ == "__main__":
     words = ["apple", "banana", "cherry", "date", "elderberry", "fig", "grape"]
     # print_grid(words, 3, True, 2)
-    print(words_grid(words, 3, True, 2))
+    print(words_grid(words, 3, True, 2, "^"))
     pass
