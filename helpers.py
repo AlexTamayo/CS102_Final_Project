@@ -5,6 +5,7 @@ Helpers
 import shutil
 import math
 from ANSI import ANSI
+import re
 
 def terminal_center_print(text):
     # Get the terminal width
@@ -67,32 +68,40 @@ def words_grid(words, columns, equal_spacing=False, width=0, alignment = "^"):
         words = [format_str.format(lt_decotator+word+rt_decotator) for word in words]
     # Calculate the total width of the grid (the total length of all words in a single row)    
     total_width = (max_word_len + width) * columns
+
     # Calculate the number of words remaining in the last row if the list of words is not evenly divisible by columns
     words_remaining = len(words) % columns
+    
     # Calculate the total number of rows in the grid
     total_rows = math.ceil(len(words) / columns)
+    # print(f'Number of total_rows iteration: {total_rows}\n')
+    
     # Initialize an empty string to store the final grid
     # row_str = "\n"
     row_str = ""
     # Loop through the words, creating rows of words with columns number of words in each row
     for i in range(0, len(words), columns):
+
         # Get the words for the current row
         row = words[i:i + columns]
+        
         # If the last row is not full, calculate the length of the space to center each word
         if (words_remaining != 0) and (i // columns + 1 == total_rows):
             space_length = total_width // len(row)
-            # Center each word in the row using the calculated space length
+
+            # Align each word in the row using the calculated space length
             for word in row:
                 row_str += "{:{}{}}".format(word, alignment, space_length)
-                # row_str += "{:"+alignment+word ^{}}".format(word, space_length)
             break
+        
         # Add the words in the current row to the final grid string
         row_str += "".join(row)
         # print(f'Number of iteration: {i}\n')
-        # print(f'{i} < {width*total_rows} - {columns} - 1 = {(width*total_rows) - columns} {i < (width*total_rows) - columns}\n')        
-        if i < (width*total_rows) - columns:
-            # Add a newline character to separate each row
-            row_str += "\n"
+        # print(f'{i} < {width*total_rows} - 1 = {(width*total_rows)- 1} {i < (width*total_rows) - 1}\n')        
+        # if i < (width*total_rows) - 1:
+        #     # Add a newline character to separate each row
+        #     row_str += "\n"
+        row_str += "\n"
     # Return the final grid string
     return row_str
 
@@ -110,12 +119,19 @@ def add_to_string(elements, separator):
     # The result of the join() method is returned from the function.
     return separator.join(elements)
 
+def is_alpha_and_space(string):
+    return bool(re.match("^[a-zA-Z\s_-]+$", string))
 
 
 
 if __name__ == "__main__":
-    words = ["apple", "banana", "cherry", "date", "elderberry", "fig", "grape"]
+    # words = ["apple", "banana", "cherry", "date", "elderberry", "fig", "grape"]
+
+    words_1 = ["Single Player", "Hack and Slash", "Action role-playing", "Real-time tactics", "Multiplayer", "Split Screen", "Co-Op"] #7
+    words_2 = ["Single Player", "Action role-playing", "Real-time tactics", "Multiplayer", "Split Screen", "Co-Op"] #6
     # print_grid(words, 3, True, 2)
-    print(words_grid(words, 2, True, 2, "^"))
+    print(words_grid(words_1, 2, True, 2, "<"))
+    print("BlaBlaBlaBlaBla")
+    print(words_grid(words_2, 2, True, 2, "<"))
     print("BlaBlaBlaBlaBla")
     pass
