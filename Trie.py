@@ -1,7 +1,7 @@
 class TrieNode:
-    # TrieNode Class
-    # Definition for TrieNode with instance variables for children, is_end_of_word, and word
-
+    '''
+    Definition for TrieNode with instance variables for children, is_end_of_word, and word
+    '''
     # Initialize TrieNode instance with an empty dictionary for children, False for is_end_of_word, and an empty string for word
     def __init__(self):
         self.children = {} # dictionary to store children nodes
@@ -9,9 +9,9 @@ class TrieNode:
         self.word = "" # store the word associated with the node
 
 class Trie:
-    # Trie Class
-    # Definition for Trie with a root node initialized with TrieNode instance
-
+    '''
+    Definition for Trie with a root node initialized with TrieNode instance
+    '''
     # Initialize Trie instance with a root node initialized with TrieNode instance
     def __init__(self):
         self.root = TrieNode() # root node of the Trie
@@ -49,8 +49,6 @@ class Trie:
         results = [] # list to store the results
         self._search_helpter(node, prefix, results) # call the helper function to search for the words
         # if there is only one result, return the result directly
-        if len(results) == 1:
-            return results[0]
         return results
 
     # Helper function for search() to find all words starting from the node with the given prefix
@@ -73,6 +71,6 @@ if __name__ == "__main__":
     trie.insert("Beat 'Em Up")
     # first_word = trie.search("Action")
     # print(first_word) # Output: "action"
-    # words = trie.search("Ac")
-    # print(words)
+    words = trie.search("Action ")
+    print(words)
     # trie.visualise()

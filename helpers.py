@@ -16,9 +16,9 @@ def terminal_center_print(text):
         print(line.center(column_width))
 
 def center_string(string, length, fill_char):
-    """
+    '''
     Centers a string within a given length, using a specified fill character.
-    """
+    '''
     # Calculate how much padding is needed on each side of the string
     padding = length - len(string)
     padding_left = padding // 2
@@ -72,7 +72,8 @@ def words_grid(words, columns, equal_spacing=False, width=0, alignment = "^"):
     # Calculate the total number of rows in the grid
     total_rows = math.ceil(len(words) / columns)
     # Initialize an empty string to store the final grid
-    row_str = "\n"    
+    # row_str = "\n"
+    row_str = ""
     # Loop through the words, creating rows of words with columns number of words in each row
     for i in range(0, len(words), columns):
         # Get the words for the current row
@@ -87,17 +88,22 @@ def words_grid(words, columns, equal_spacing=False, width=0, alignment = "^"):
             break
         # Add the words in the current row to the final grid string
         row_str += "".join(row)
-        # Add a newline character to separate each row
-        row_str += "\n"
+        # print(f'Number of iteration: {i}\n')
+        # print(f'{i} < {width*total_rows} - {columns} - 1 = {(width*total_rows) - columns} {i < (width*total_rows) - columns}\n')        
+        if i < (width*total_rows) - columns:
+            # Add a newline character to separate each row
+            row_str += "\n"
     # Return the final grid string
     return row_str
 
 
 
 def add_to_string(elements, separator):
-    # This function takes in two arguments: 
-    #   elements: a list of elements that need to be joined 
-    #   separator: the separator string used to join the elements
+    '''
+    This function takes in two arguments: 
+      elements: a list of elements that need to be joined 
+      separator: the separator string used to join the elements
+    '''
 
     # The join() method is called on the separator string, 
     # which is used to join all elements in the "elements" list. 
@@ -110,5 +116,6 @@ def add_to_string(elements, separator):
 if __name__ == "__main__":
     words = ["apple", "banana", "cherry", "date", "elderberry", "fig", "grape"]
     # print_grid(words, 3, True, 2)
-    print(words_grid(words, 3, True, 2, "^"))
+    print(words_grid(words, 2, True, 2, "^"))
+    print("BlaBlaBlaBlaBla")
     pass
