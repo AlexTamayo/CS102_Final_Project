@@ -5,9 +5,8 @@ Resources:
 https://patorjk.com/software/taag/#p=display&f=Graffiti&t=Type%20Something%20
 '''
 
-from helpers import terminal_center_print, center_string, square_frame, words_grid, add_to_string, is_alpha_and_space
+from helpers import terminal_center_print, square_frame, words_grid, add_to_string, is_alpha_and_space
 from ANSI import ANSI
-from NintendoSwithGame import NintendoSwitchGame
 from nintendo_switch_games_list import my_games_list, list_maker
 from Trie import Trie
 import time
@@ -20,7 +19,6 @@ class Game_Chooser:
   def prompt_1(self):
     prompt_1_text = "What type of game would you like to search for?\n"
     prompt_1_a_text = "Type a game category and I'll tell you which games are available in Alex's library of that type. You could also enter the number \"1\" to see all available types. "
-    prompt_1_b_text = "Type the beginning of the category would you like to search and press enter to see if it's here. "
     prompt_1_a_a_text = "You have entered an invalid character. Only alphabetical characters and the number 1 is accepted."
     prompt_1_a_b_text = "Sorry, no game in the list has got those beginning letters. Please try again."
 
