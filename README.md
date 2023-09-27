@@ -13,7 +13,7 @@ This is my final project for the Computer Science 102 course at Codecademy. This
 
 ## Media
 
-
+https://github.com/AlexTamayo/CS102_Final_Project/assets/3316856/35216a43-53fe-41da-924d-511a858bb48d
 
 ## Usage
 To get personalized game recommendations, simply:
