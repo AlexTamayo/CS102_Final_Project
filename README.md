@@ -1,5 +1,25 @@
-Codecademy final project for Computer Science 102 - Recommendation Software Project
+# Recommendation Software Project for Computer Science 102
 
-In this project I decided to do a software that recommends games from my own Nintendo Switch library based on selected categories.
+## Overview
+This is my final project for the Computer Science 102 course at Codecademy. This software is designed to recommend games from my personal Nintendo Switch library based on user-selected categories.
 
-In this project I implemented a lot of the lessons learnt in CS102 - Data Structures & Algorithms. I used a Trie as my search algorithm.
+## Key Features
+- Utilizes a Trie data structure for efficient search functionality.
+- Integrates lessons learned in CS102, focusing on Data Structures & Algorithms.
+
+## Technologies Used
+- Data Structures: Trie
+- Algorithms: Search Algorithms
+
+## Media
+
+
+
+## Usage
+To get personalized game recommendations, simply:
+1. Run the software.
+2. Select a category.
+3. Receive your game recommendations from my Nintendo Switch library.
+
+## Acknowledgements
+This project serves as a culmination of my learning in the Computer Science 102 course at Codecademy, showcasing my understanding of Data Structures & Algorithms.
